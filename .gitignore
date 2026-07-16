@@ -1,0 +1,6 @@
+/.vscode
+/index.html
+/package.json
+/README.md
+/tests
+/vitest.config.js

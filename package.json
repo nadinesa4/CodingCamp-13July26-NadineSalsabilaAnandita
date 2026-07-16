@@ -1,0 +1,14 @@
+{
+  "name": "personal-dashboard",
+  "version": "1.0.0",
+  "description": "A fully client-side personal dashboard built with vanilla HTML, CSS, and JavaScript.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "fast-check": "3.23.2",
+    "vitest": "2.1.9"
+  }
+}

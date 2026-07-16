@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+
+  <!-- Synchronous pre-paint theme script — prevents flash-of-wrong-theme -->
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <h1>Personal Dashboard</h1>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- Greeting Widget -->
+    <section id="greeting-widget" aria-label="Greeting" class="widget-card">
+      <div class="clock" id="clock">HH:MM</div>
+      <div class="date" id="greeting-date"></div>
+      <div class="greeting-text" id="greeting-text"></div>
+      <form class="name-form" id="name-form">
+        <label for="name-input">Your name</label>
+        <input id="name-input" type="text" maxlength="50" placeholder="Enter your name" />
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <!-- Focus Timer Widget -->
+    <section id="timer-widget" aria-label="Focus Timer" class="widget-card">
+      <div class="timer-display" id="timer-display" role="timer" aria-live="off">25:00</div>
+      <div class="timer-alert" id="timer-alert" aria-live="assertive" hidden></div>
+      <div class="timer-controls">
+        <button id="timer-start">Start</button>
+        <button id="timer-stop" disabled>Stop</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+    </section>
+
+    <!-- To-Do List Widget -->
+    <section id="todo-widget" aria-label="To-Do List" class="widget-card">
+      <form id="todo-form">
+        <input id="todo-input" type="text" maxlength="200" placeholder="Add a task…" />
+        <button type="submit">Add</button>
+      </form>
+      <div id="todo-error" role="alert" aria-live="polite"></div>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <!-- Quick Links Widget -->
+    <section id="links-widget" aria-label="Quick Links" class="widget-card">
+      <form id="links-form">
+        <input id="link-name-input" type="text" maxlength="50" placeholder="Link name" />
+        <input id="link-url-input" type="url" maxlength="2048" placeholder="https://…" />
+        <button type="submit">Add</button>
+      </form>
+      <div id="links-error" role="alert" aria-live="polite"></div>
+      <ul id="links-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
